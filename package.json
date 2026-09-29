@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit -p tsconfig.rollup.json",
     "rollup:build": "cross-env NODE_ENV=pmx  rollup -c --bundleConfigAsCjs --configPlugin typescript --environment TARGET:full-dev",
     "rollup:serve": "rollup -c -w --bundleConfigAsCjs --environment TARGET:full-dev",
     "webpack:build": "webpack  --env target=full-dev --node-env production",
@@ -32,6 +34,7 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6",
+    "vite": "^4.5.14",
     "webpack": "^5.88.2",
     "webpack-chain": "^6.5.1",
     "webpack-cli": "^5.1.4",

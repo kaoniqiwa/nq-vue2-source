@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue2 用例自检（源码）</title>
+    <style>
+      body { font: 14px/1.6 ui-monospace, Menlo, monospace; margin: 24px; max-width: 900px; }
+      h1 { font-size: 16px; }
+      nav { font-size: 13px; margin-bottom: 16px; }
+      ol { padding-left: 24px; }
+      li { white-space: pre-wrap; }
+      .pass { color: #0a0; }
+      .fail { color: #c00; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/dev/">sandbox</a> ·
+      <a href="/dev/cases.html">用例（源码）</a> ·
+      <a href="/dev/_control.html">对照组（dist 产物）</a>
+    </nav>
+    <h1 id="summary">running…</h1>
+    <ol id="results"></ol>
+
+    <script type="module">
+      // 跑 src 源码：改完 src 刷新页面即可看到用例结果变化
+      import Vue from "/src/platforms/web/entry-runtime-with-compiler-esm.ts";
+      import { runCases, renderResults } from "./cases.js";
+
+      window.Vue = Vue; // DevTools console 里可直接调试
+      renderResults(await runCases(Vue));
+    </script>
+  </body>
+</html>

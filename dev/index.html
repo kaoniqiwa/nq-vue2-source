@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue2 源码调试</title>
+  </head>
+  <body>
+    <nav style="font: 13px/1.6 ui-monospace, Menlo, monospace; margin-bottom: 16px">
+      <a href="/dev/">sandbox</a> ·
+      <a href="/dev/cases.html">用例（源码）</a> ·
+      <a href="/dev/_control.html">对照组（dist 产物）</a>
+    </nav>
+    <div id="app">{{ msg }}</div>
+
+    <script type="module">
+      import Vue from "/src/platforms/web/entry-runtime-with-compiler-esm.ts";
+      window.Vue = Vue; // 方便在 DevTools console 里直接调试
+      new Vue({
+        el: "#app",
+        data: { msg: "hello vite" },
+      });
+    </script>
+  </body>
+</html>
