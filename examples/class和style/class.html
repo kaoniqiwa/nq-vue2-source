@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../dist/webpack/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 绑定普通字符串-->
+      <div v-bind:class="'hi'">hello</div>
+
+      <!-- 绑定变量-->
+      <div v-bind:class="foo">hello</div>
+
+      <!-- 绑定对象,对象属性值强转为boolean后,true则将属性名作为类名添加-->
+      <div v-bind:class="{bar:true}">hello</div>
+
+      <!-- 绑定数组-->
+      <div v-bind:class="['baz',info,{geck:999}]">hello</div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          foo: "ff",
+          info: "ii",
+        },
+      });
+    </script>
+  </body>
+</html>

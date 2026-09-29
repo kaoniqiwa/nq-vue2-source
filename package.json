@@ -1,0 +1,44 @@
+{
+  "name": "vue2.x",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "rollup:build": "cross-env NODE_ENV=pmx  rollup -c --bundleConfigAsCjs --configPlugin typescript --environment TARGET:full-dev",
+    "rollup:serve": "rollup -c -w --bundleConfigAsCjs --environment TARGET:full-dev",
+    "webpack:build": "webpack  --env target=full-dev --node-env production",
+    "webpack:serve": "webpack --watch  --env target=full-dev "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/he": "^1.2.0",
+    "@types/node": "^20.4.5",
+    "cross-env": "^7.0.3",
+    "he": "^1.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "rollup": "^3.27.0",
+    "rollup-plugin-serve": "^2.0.2",
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.1",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-chain": "^6.5.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-merge": "^5.9.0"
+  },
+  "engines": {
+    "node": "^16"
+  }
+}

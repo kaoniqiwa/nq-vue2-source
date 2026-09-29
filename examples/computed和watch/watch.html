@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../dist/webpack/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          firstName: "Foo",
+          lastName: "Green",
+
+          f: {
+            g: {
+              h: 5,
+            },
+            i: 6,
+          },
+        },
+      });
+      vm.$watch("f.g.h", function (newVal, oldVal) {
+        console.log("firstName new: %s, old: %s", newVal, oldVal);
+      });
+      // vm.$watch("firstName", {
+      //   handler: function (newVal, oldVal) {
+      //     console.log("firstName new: %s, old: %s", newVal, oldVal);
+      //   },
+      // });
+      // vm.$watch(
+      //   function () {
+      //     return this.firstName + this.lastName;
+      //   },
+      //   {
+      //     handler: function (newVal, oldVal) {
+      //       console.log("firstName new: %s, old: %s", newVal, oldVal);
+      //     },
+      //   }
+      // );
+    </script>
+  </body>
+</html>

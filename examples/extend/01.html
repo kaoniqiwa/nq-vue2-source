@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../dist/webpack/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">{{title}} {{msg}}</div>
+    <div id="app2">{{title}} {{msg}}</div>
+    <div id="app3">{{msg}} {{a}} {{title}}</div>
+
+    <script>
+      const Ctor1 = Vue.extend({
+        data() {
+          return {
+            title: "ctor1",
+          };
+        },
+      });
+      new Ctor1({
+        el: "#app",
+        data() {
+          return {
+            msg: "app",
+          };
+        },
+      });
+
+      /**
+       * 合并 Vue.options + Ctor1.options
+       */
+      let Ctor2 = Vue.extend(Ctor1);
+      new Ctor2({
+        el: "#app2",
+        data() {
+          return {
+            msg: "app3",
+          };
+        },
+      });
+
+      /**
+       *  extend 来源于 Ctor2,合并  Ctor2.optioins + extendOptions
+       */
+      let Ctor3 = Ctor2.extend({
+        data() {
+          return {
+            a: 1,
+          };
+        },
+      });
+      new Ctor3({
+        el: "#app3",
+        data() {
+          return {
+            msg: "app3",
+          };
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="../../dist/rollup/vue.js"></script> -->
+    <script src="../../dist/webpack/vue.js"></script>
+  </head>
+  <body>
+    <!-- 
+      相当于:
+      <div id="app">
+          <hello>
+            <div>hello</div>
+          </hello>
+      </div> 
+      1. div#app 为根 vue 实例 vm,同时对应一个 VNode
+      2. hello 对应一个VNode,但是没有 vue 实例
+      3. <div>hello</div> 对应一个 VNode，且vnode.parentNode 为hello vnode，且创建 hello 类实例，
+      helloInstance.parent = vm
+      4. 
+  -->
+
+    <div id="app">
+      <hello-world></hello-world>
+    </div>
+
+    <script>
+      // Vue.component("counter", {
+      //   template: `<div>counter</div>`,
+      // });
+      let vm = new Vue({
+        comments: true,
+        el: "#app",
+        data() {
+          return {
+            msg: "hello",
+          };
+        },
+        components: {
+          HelloWorld: {
+            data() {
+              return {
+                age: 10,
+              };
+            },
+            template: `<div> hello</div>`,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

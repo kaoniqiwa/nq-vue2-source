@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../dist/webpack/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 绑定对象，属性值为普通字符串-->
+      <div v-bind:style="{color:'red'}">hello</div>
+
+      <!-- 绑定对象，属性值为表达式-->
+      <div v-bind:style="{fontSize:size}">hello</div>
+
+      <!-- 绑定数组，数组元素为普通字符串或者对象-->
+      <div v-bind:style="[{color:'red'},{fontSize:size}]">hello</div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          size: "20px",
+        },
+      });
+    </script>
+  </body>
+</html>

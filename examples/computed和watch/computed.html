@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../dist/webpack/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">{{reversedMessage}}</div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          message: "hello",
+        },
+        computed: {
+          reversedMessage() {
+            console.log("reversedMessage");
+            // return this.message.split("").reverse().join("");
+            return "ss";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

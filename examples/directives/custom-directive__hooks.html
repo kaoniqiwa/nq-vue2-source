@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../../dist/rollup/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      Vue.directive('focus', {
+        /**called once,when the directive is first bound to the element*/
+        bind(el, binding, vnode) {
+          console.log('bind');
+        },
+        inserted(el, binding, vnode) {
+          console.log('inserted');
+        },
+        update(el, binding, vnode, oldVnode) {
+          console.log('update');
+        },
+        componentUpdated(el, binding, vnode) {
+          console.log('componentUpdated');
+        },
+        unbind(el, binding, vnode) {
+          console.log('unbind');
+        },
+      });
+      new Vue({
+        el: '#app',
+        template: `
+        <div>
+            <input type="text" v-focus />
+        </div>
+        `,
+      });
+      // console.log(Vue.option);
+    </script>
+  </body>
+</html>

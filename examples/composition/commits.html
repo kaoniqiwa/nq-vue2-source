@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Commits</title>
+    <script src="../../dist/rollup/vue.js"></script>
+  </head>
+  <body>
+    <template>
+      <div>sdfsdf</div>
+    </template>
+    <div id="demo">
+      <h1>Latest Vue.js Commits</h1>
+
+      <template v-for="item in arr">
+        <p>{{item}}</p>
+      </template>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#demo",
+        data: {
+          arr: [1, 2, 3],
+        },
+      });
+    </script>
+  </body>
+</html>
